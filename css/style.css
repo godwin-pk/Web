@@ -4,6 +4,12 @@ body {
   background-color: #ffffff;
   overflow-x: hidden;
 }
+body {
+  font-family: 'Gayathri', sans-serif;
+  color: #0c0c0c;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
 
 .layout_padding {
   padding: 90px 0;
