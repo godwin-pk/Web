@@ -785,11 +785,11 @@ a:focus {
   right: -25px;
 }
 
-.client_section {
+/* .client_section {
   background-image: url(../images/background.jpg);
   background-size: cover;
   background-attachment: fixed;
-}
+} */
 
 .client_section .heading_container {
   margin-bottom: 45px;
@@ -1246,28 +1246,13 @@ a:focus {
 /*# sourceMappingURL=style.css.map */
 
 #-------------------------------------------------------------
-
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  text-align: center; /* Align text to the center */
+div.scroll-container {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
 }
 
-.image-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-img {
-  display: block;
-}
-
-.description {
-  margin-top: 10px;
-  font-size: 16px;
+div.scroll-container img {
+  padding: 10px;
 }
