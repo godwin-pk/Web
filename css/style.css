@@ -1258,7 +1258,10 @@ div.scroll-container img {
 }
 
 #--------------------------------------------
-
+.image-container_1 {
+  display: flex;
+  gap: 10px; /* optional: adds some space between images */
+}
 .image {
             display: inline-block;
             margin: 5px; /* optional: adds some space between images */
