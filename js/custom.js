@@ -58,3 +58,15 @@ function myMap() {
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
+
+/* ----------------------------------------*/
+const previousButton = document.querySelector(".previous");
+const nextButton = document.querySelector(".next");
+
+previousButton.addEventListener("click", function() {
+// perform action for previous button
+});
+
+nextButton.addEventListener("click", function() {
+// perform action for next button
+});

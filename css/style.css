@@ -752,18 +752,18 @@ a:focus {
   margin-top: 45px;
   padding: 0 45px;
 }
-
+/*
 .project_section .project_carousel .owl-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
+  -wowl-nav buttonebkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   margin-top: 20px;
 }
 
-.project_section .project_carousel .owl-nav button {
+.project_section .project_carousel . {
   width: 50px;
   height: 50px;
   background-color: #252525;
@@ -784,7 +784,7 @@ a:focus {
 .project_section .project_carousel .owl-nav button.owl-next {
   right: -25px;
 }
-
+*/
 /* .client_section {
   background-image: url(../images/background.jpg);
   background-size: cover;
@@ -1255,4 +1255,41 @@ div.scroll-container {
 
 div.scroll-container img {
   padding: 10px;
+}
+
+#--------------------------------------------
+
+.image {
+            display: inline-block;
+            margin: 5px; /* optional: adds some space between images */
+        }
+
+
+.scroll-container_1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Optional: space between images */
+}
+.image-container {
+    position: relative;
+    width: 350px; /* Fixed width matching the image width */
+    height: 250px; /* Fixed height matching the image height */
+    overflow: hidden; /* Optional: hides overflowing content */
+}
+
+.image_1 {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
 }
